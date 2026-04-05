@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Chat & Video</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+    <div id="setup-container">
+        <h2>Join a Room</h2>
+        <input type="text" id="room-id" placeholder="Enter Room ID (e.g. 123)">
+        <button onclick="joinRoom()">Join</button>
+    </div>
+
+    <div id="main-container" style="display:none;">
+        <div class="video-grid">
+            <div class="video-wrapper">
+                <video id="localVideo" autoplay playsinline muted></video>
+                <p>You</p>
+            </div>
+            <div class="video-wrapper">
+                <video id="remoteVideo" autoplay playsinline></video>
+                <p>Remote User</p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <p id="call-status">Status: Idle</p>
+            <button id="startCallBtn" onclick="startCall()">Start Call</button>
+        </div>
+
+        <div id="chat-container">
+            <div id="chat-messages"></div>
+            <div class="chat-input">
+                <input type="text" id="chat-input-field" placeholder="Type a message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
